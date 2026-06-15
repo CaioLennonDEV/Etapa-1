@@ -73,7 +73,7 @@ app.delete('/ideias/:id', (req, res) => {
 
     ideias.splice(ideias.indexOf(ideia), 1);
     console.log('Status: 200 - Ideia deletada');
-    return res.status(200).json(ideias);
+    return res.status(200).json('Ideia deletada');
 });
 
 // Porta de conexão
