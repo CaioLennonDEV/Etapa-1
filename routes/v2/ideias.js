@@ -4,7 +4,14 @@ const router = Router();
 // Objeto de teste
 const ideias = [{id: 1, nome_ideia: 'TESTE 1', descricao: 'Descrição 1', status: 'Status 1'},    
     {id: 2, nome_ideia: 'TESTE da branch 2', descricao: 'Descrição 2', status: 'Status 2'},
-    {id: 3, nome_ideia: 'TESTE da branch 3', descricao: 'Descrição 3', status: 'Status 3'}];
+    {id: 3, nome_ideia: 'TESTE da branch 3', descricao: 'Descrição 3', status: 'Status 3'},
+    {id: 4, nome_ideia: 'TESTE da branch 4', descricao: 'Descrição 4', status: 'Status 4'},
+    {id: 5, nome_ideia: 'TESTE da branch 5', descricao: 'Descrição 5', status: 'Status 5'},
+    {id: 6, nome_ideia: 'TESTE da branch 6', descricao: 'Descrição 6', status: 'Status 6'},
+    {id: 7, nome_ideia: 'TESTE da branch 7', descricao: 'Descrição 7', status: 'Status 7'},
+    {id: 8, nome_ideia: 'TESTE da branch 8', descricao: 'Descrição 8', status: 'Status 8'},
+    {id: 9, nome_ideia: 'TESTE da branch 9', descricao: 'Descrição 9', status: 'Status 9'},
+    {id: 10, nome_ideia: 'TESTE da branch 10', descricao: 'Descrição 10', status: 'Status 10'}];
 
 // req e res são objetos que representam a requisição e a resposta HTTP
 
