@@ -1,28 +1,21 @@
-import express from 'express';
+import { Router } from 'express';
+const router = Router();
 
-// Chamada do express
-const app = express();
-app.use(express.json());
-// Middleware para parsear o corpo da requisição como JSON
 // Objeto de teste
-const ideias = [{id: 1, nome_ideia: 'Ideia 1', descricao: 'Descrição 1', status: 'Status 1'},    
-    {id: 2, nome_ideia: 'Ideia 2', descricao: 'Descrição 2', status: 'Status 2'},
-    {id: 3, nome_ideia: 'Ideia 3', descricao: 'Descrição 3', status: 'Status 3'}];
+const ideias = [{id: 1, nome_ideia: 'TESTE 1', descricao: 'Descrição 1', status: 'Status 1'},    
+    {id: 2, nome_ideia: 'TESTE 2', descricao: 'Descrição 2', status: 'Status 2'},
+    {id: 3, nome_ideia: 'TESTE 3', descricao: 'Descrição 3', status: 'Status 3'}];
 
-// Rota de teste
-app.get('/', (req, res) => {
-    res.send("Bem vindo a minha api de ideias, use /ideias na url para ver as ideias");
-});
 // req e res são objetos que representam a requisição e a resposta HTTP
 
 // Buscando todas as ideias
-app.get('/ideias', (req, res) => {
+router.get('/ideias', (req, res) => {
     console.log('Status: 200 - Ideias listadas');
     return res.status(200).json(ideias);
 });
 
 // Buscando uma ideia específica
-app.get('/ideias/:id', (req, res) => {       // Number(req.params.id) é para converter o id para um número
+router.get('/ideias/:id', (req, res) => {       // Number(req.params.id) é para converter o id para um número
     const ideia = ideias.find(ideia => ideia.id === Number(req.params.id));
     if (!ideia) {
         console.log('Status: 404 - Ideia não encontrada');
@@ -33,7 +26,7 @@ app.get('/ideias/:id', (req, res) => {       // Number(req.params.id) é para co
 });
 
 // Criando uma nova ideia
-app.post('/ideias', (req, res) => {
+router.post('/ideias', (req, res) => {
     const { nome_ideia, descricao, status } = req.body;
 
     if (!nome_ideia || !descricao || !status) { // if (!nome_ideia || !descricao || !status) é para verificar se os campos obrigatórios estão faltando
@@ -47,7 +40,7 @@ app.post('/ideias', (req, res) => {
 });
 
 // Atualizando uma ideia específica
-app.put('/ideias/:id', (req, res) => {
+router.put('/ideias/:id', (req, res) => {
     const ideia = ideias.find(ideia => ideia.id === Number(req.params.id));
 
     if (!ideia) {
@@ -63,7 +56,7 @@ app.put('/ideias/:id', (req, res) => {
 });
 
 // Deletando uma ideia específica
-app.delete('/ideias/:id', (req, res) => {
+router.delete('/ideias/:id', (req, res) => {
     const ideia = ideias.find(ideia => ideia.id === Number(req.params.id));
 
     if (!ideia) {
@@ -76,8 +69,4 @@ app.delete('/ideias/:id', (req, res) => {
     return res.status(200).json('Ideia deletada');
 });
 
-// Porta de conexão
-app.listen(3000, () => {
-    console.log('Servidor rodando na porta 3000');
-});
-
+export default router;
